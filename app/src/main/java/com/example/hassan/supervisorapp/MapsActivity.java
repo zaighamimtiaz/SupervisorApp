@@ -1,5 +1,6 @@
 package com.example.hassan.supervisorapp;
 
+import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -9,10 +10,15 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private List<LatLng> points = new ArrayList<LatLng>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +45,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(new LatLng(24.887332, 67.125242)).title("Marker"));
+        // mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        double pointX[] = {24.887332,24.894767,24.900723,24.901151,24.899400};
+        double pointY[] = {67.125242,67.119963,67.116101,67.111852,67.106316};
+
+        for (int i = 0 ; i < pointX.length; i++){
+
+            points.add(new LatLng(pointX[i], pointY[i]));
+        }
+
+        PolylineOptions options = new PolylineOptions().width(5).color(Color.BLUE).geodesic(true);
+
+        for (int z = 0; z < points.size(); z++) {
+            LatLng point = points.get(z);
+            options.add(point);
+        }
+
+        mMap.addPolyline(options);
     }
 }
