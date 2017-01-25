@@ -6,38 +6,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class EmployeesList extends AppCompatActivity {
 
-    Button btn , createEmp;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_employees_list);
 
         btn = (Button)findViewById(R.id.empListBtn);
-        createEmp = (Button)findViewById(R.id.createEmp);
 
         btn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        Intent i = new Intent(MainActivity.this,EmployeesList.class);
+                        Intent i = new Intent(EmployeesList.this,MapsActivity.class);
                         startActivity(i);
                     }
                 }
         );
 
-        createEmp.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        Intent i = new Intent(MainActivity.this,CreateEmoloyee.class);
-                        startActivity(i);
-                    }
-                }
-        );
     }
 }
