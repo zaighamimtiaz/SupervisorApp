@@ -31,7 +31,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private List<LatLng> points = new ArrayList<LatLng>();
     private Double[] pointX , pointY;
-    private String url = "http://192.168.1.104:3000/locations";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,15 +54,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
+        Bundle bundle = getIntent().getExtras();
+        int user_id = bundle.getInt("user_id");
+        String url1 = Integer.toString(user_id);
+
+        String url = "http://fyp-loc-detect.herokuapp.com/users/" + url1 + "/locations";
+
         mMap = googleMap;
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null , new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
+                Request.Method.GET, url, null , new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
                 try {
 
-                    JSONObject jsonObject = new JSONObject();
+                    JSONObject jsonObject;
 
                     String temp;
 
