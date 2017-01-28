@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class EmployeesList extends AppCompatActivity {
 
     ListView l;
-    String url = "http://192.168.1.104:3000/users";
+    String url = "https://fyp-loc-detect.herokuapp.com/users";
     ArrayList<String> list = new ArrayList<>();
     ArrayList<Integer> list1 = new ArrayList<>();
 
