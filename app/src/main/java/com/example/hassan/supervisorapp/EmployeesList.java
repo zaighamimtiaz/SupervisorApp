@@ -20,10 +20,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class EmployeesList extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class EmployeesList extends AppCompatActivity {
 
     ListView l;
-    String url = "http://fyp-loc-detect.herokuapp.com/users";
+    String url = "http://192.168.1.104:3000/users";
     ArrayList<String> list = new ArrayList<>();
     ArrayList<Integer> list1 = new ArrayList<>();
 
@@ -55,6 +55,19 @@ public class EmployeesList extends AppCompatActivity implements AdapterView.OnIt
 
                     l.setAdapter(adapter);
 
+                    l.setOnItemClickListener(
+                            new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                                    Intent intent = new Intent(EmployeesList.this,MapsActivity.class);
+                                    intent.putExtra("user_id",list1.get(position));
+                                    intent.putExtra("name",list.get(position));
+                                    startActivity(intent);
+                                }
+                            }
+                    );
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -72,12 +85,9 @@ public class EmployeesList extends AppCompatActivity implements AdapterView.OnIt
         AppSingleton.getInstance(EmployeesList.this).addToRequestQueue(jsonArrayRequest);
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-        Intent intent = new Intent(EmployeesList.this,MapsActivity.class);
-        intent.putExtra("user_id",list1.get(position));
-        intent.putExtra("name",list.get(position));
-        startActivity(intent);
-    }
+//    @Override
+//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//
+//    }
 }

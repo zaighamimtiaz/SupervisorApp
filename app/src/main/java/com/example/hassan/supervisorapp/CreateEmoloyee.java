@@ -35,7 +35,7 @@ public class CreateEmoloyee extends AppCompatActivity {
                     public void onClick(View v) {
 
                         String name , emailid , password;
-                        String url = "http://fyp-loc-detect.herokuapp.com/users";
+                        String url = "http://192.168.1.104:3000/users";
 
                         name = firstName.getText().toString();
                         emailid = email.getText().toString();
