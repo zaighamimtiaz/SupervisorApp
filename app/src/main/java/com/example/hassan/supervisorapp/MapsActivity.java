@@ -59,7 +59,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         int user_id = bundle.getInt("user_id");
         String url1 = Integer.toString(user_id);
 
-        String url = "http://192.168.1.104:3000/users/" + url1 + "/locations";
+        String url = "https://fyp-loc-detect.herokuapp.com/users/" + url1 + "/locations";
 
         mMap = googleMap;
 
