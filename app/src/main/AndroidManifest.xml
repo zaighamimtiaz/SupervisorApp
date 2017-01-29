@@ -39,7 +39,8 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".EmployeesList" />
-        <activity android:name=".CreateEmoloyee"></activity>
+        <activity android:name=".CreateEmoloyee" />
+        <activity android:name=".MessageActivity"></activity>
     </application>
 
 </manifest>
