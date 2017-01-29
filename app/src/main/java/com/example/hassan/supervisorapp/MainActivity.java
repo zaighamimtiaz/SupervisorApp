@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn , createEmp , msgBtn;
+    Button btn , createEmp , msgBtn , allEmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         btn = (Button)findViewById(R.id.empListBtn);
         createEmp = (Button)findViewById(R.id.createEmp);
         msgBtn = (Button)findViewById(R.id.msgBtn);
+        allEmp = (Button)findViewById(R.id.allEmpBtn);
 
         btn.setOnClickListener(
                 new View.OnClickListener() {
@@ -47,6 +48,17 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
 
                         Intent i = new Intent(MainActivity.this,MessageActivity.class);
+                        startActivity(i);
+                    }
+                }
+        );
+
+        allEmp.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent i = new Intent(MainActivity.this,AllEmpList.class);
                         startActivity(i);
                     }
                 }

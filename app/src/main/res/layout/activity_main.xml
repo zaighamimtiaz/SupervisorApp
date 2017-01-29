@@ -11,7 +11,7 @@
     tools:context="com.example.hassan.supervisorapp.MainActivity">
 
     <Button
-        android:text="Employees List"
+        android:text="Employees Signed in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -36,4 +36,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="48dp"
         android:id="@+id/msgBtn" />
+
+    <Button
+        android:text="All Employees"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/empListBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:id="@+id/allEmpBtn" />
 </RelativeLayout>

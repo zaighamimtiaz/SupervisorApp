@@ -38,7 +38,7 @@ public class MessageActivity extends AppCompatActivity {
 
                         else {
 
-                            String url = "https://fyp-loc-detect.herokuapp.com/users/sendNotif";
+                            String url = "http://192.168.1.104:3000/users/sendNotif";
 
                             JSONObject obj = new JSONObject();
 

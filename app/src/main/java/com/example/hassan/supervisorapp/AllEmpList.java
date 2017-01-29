@@ -20,19 +20,19 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class EmployeesList extends AppCompatActivity {
+public class AllEmpList extends AppCompatActivity {
 
     ListView l;
-    String url = "http://192.168.1.104:3000/users/signedInUsers";
+    String url = "http://192.168.1.104:3000/users";
     ArrayList<String> list = new ArrayList<>();
     ArrayList<Integer> list1 = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employees_list);
+        setContentView(R.layout.activity_all_emp_list);
 
-        l = (ListView)findViewById(R.id.listView);
+        l = (ListView)findViewById(R.id.allEmpList);
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET, url, null , new Response.Listener<JSONArray>() {
@@ -55,19 +55,6 @@ public class EmployeesList extends AppCompatActivity {
 
                     l.setAdapter(adapter);
 
-                    l.setOnItemClickListener(
-                            new AdapterView.OnItemClickListener() {
-                                @Override
-                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                                    Intent intent = new Intent(EmployeesList.this,MapsActivity.class);
-                                    intent.putExtra("user_id",list1.get(position));
-                                    intent.putExtra("name",list.get(position));
-                                    startActivity(intent);
-                                }
-                            }
-                    );
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -82,12 +69,6 @@ public class EmployeesList extends AppCompatActivity {
                 error.printStackTrace();
             }
         });
-        AppSingleton.getInstance(EmployeesList.this).addToRequestQueue(jsonArrayRequest);
+        AppSingleton.getInstance(AllEmpList.this).addToRequestQueue(jsonArrayRequest);
     }
-
-//    @Override
-//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//
-//    }
 }
