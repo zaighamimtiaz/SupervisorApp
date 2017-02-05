@@ -45,9 +45,9 @@ public class AllEmpList extends AppCompatActivity {
 
                     int len = response.length();
                     for (int i=0;i<len;i++){
-                        jsonObject = response.getJSONObject(i);
-                        list.add(jsonObject.getString("name"));
-                        list1.add(jsonObject.getInt("id"));
+                      //  jsonObject = response.getJSONObject(i);
+                        list.add(response.getJSONObject(i).getString("name"));
+                        list1.add(response.getJSONObject(i).getInt("id"));
                     }
 
                     ArrayAdapter<String> adapter =new ArrayAdapter<>(

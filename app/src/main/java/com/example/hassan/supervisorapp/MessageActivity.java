@@ -1,5 +1,6 @@
 package com.example.hassan.supervisorapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -38,30 +39,9 @@ public class MessageActivity extends AppCompatActivity {
 
                         else {
 
-                            String url = "http://192.168.1.104:3000/users/sendNotif";
-
-                            JSONObject obj = new JSONObject();
-
-                            try {
-                                obj.put("message", message);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                                    Request.Method.POST, url,obj, new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    Toast.makeText(getApplicationContext(),"Message Sent ...!!!",Toast.LENGTH_SHORT).show();
-                                }
-                            }, new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Toast.makeText(getApplicationContext(),
-                                            "Something went Wrong ...!!!", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                            );
-                            AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+                            Intent i = new Intent(MessageActivity.this,CheckedList.class);
+                            i.putExtra("message",message);
+                            startActivity(i);
                         }
                     }
                 }

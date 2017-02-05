@@ -41,7 +41,9 @@
         <activity android:name=".EmployeesList" />
         <activity android:name=".CreateEmoloyee" />
         <activity android:name=".MessageActivity" />
-        <activity android:name=".AllEmpList"></activity>
+        <activity android:name=".AllEmpList" />
+        <activity android:name=".CheckedList" />
+        <activity android:name=".SentMessage"></activity>
     </application>
 
 </manifest>
