@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class AllEmpList extends AppCompatActivity {
 
     ListView l;
-    String url = "http://192.168.1.104:3000/users";
+    String url = "http://172.16.15.33:3000/users";
     ArrayList<String> list = new ArrayList<>();
     ArrayList<Integer> list1 = new ArrayList<>();
 

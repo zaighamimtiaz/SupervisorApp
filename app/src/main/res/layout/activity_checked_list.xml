@@ -16,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/allEmpList"
-        android:layout_weight="5"/>
+        android:layout_weight="5"
+        android:background="@color/wallet_bright_foreground_holo_light" />
 
     <Button
         android:text="Button"

@@ -20,7 +20,7 @@ public class SentMessage extends AppCompatActivity {
     Bundle data;
     String message;
     String dum = "Message sent to selected users...!!!";
-    String url = "http://192.168.1.104:3000/users/sendNotifMultiple";
+    String url = "http://172.16.15.33:3000/users/sendNotifMultiple";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -28,7 +28,7 @@ public class CheckedList extends AppCompatActivity {
 
     ListView l;
     Button btn1;
-    String url = "http://192.168.1.104:3000/users";
+    String url = "http://172.16.15.33:3000/users";
     ArrayList<String> list = new ArrayList<>();
     ArrayList<Integer> list1 = new ArrayList<>();
     ArrayList<Integer> list2 = new ArrayList<>();

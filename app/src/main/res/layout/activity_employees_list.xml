@@ -16,5 +16,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/listView" />
+        android:id="@+id/listView"
+        android:background="@color/wallet_bright_foreground_holo_light" />
 </RelativeLayout>
